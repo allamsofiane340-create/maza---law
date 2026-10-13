@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6658e8">
+  <title>ماذا لو؟ | عِش التجربة</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f5f6ff;
+      color: #20213a;
+    }
+
+    header {
+      padding: 24px 18px 30px;
+      color: white;
+      background: linear-gradient(135deg, #6658e8, #a34ee8);
+      border-radius: 0 0 28px 28px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .badge {
+      background: #ffffff2c;
+      padding: 9px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .hero {
+      max-width: 850px;
+      margin: 30px auto 0;
+    }
+
+    .hero h1 {
+      font-size: 31px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      line-height: 1.9;
+      color: #f0eaff;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 24px auto;
+      padding: 0 16px 30px;
+    }
+
+    .section-title {
+      font-size: 21px;
+      margin: 28px 0 16px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e9e8fa;
+      border-radius: 19px;
+      padding: 19px 14px;
+      text-align: right;
+      cursor: pointer;
+      box-shadow: 0 5px 18px #34305c0a;
+      transition: transform .2s, border-color .2s;
+      color: #20213a;
+      font-family: inherit;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #a99dfb;
+    }
+
+    .icon {
+      font-size: 31px;
+      display: block;
+      margin-bottom: 13px;
+    }
+
+    .card strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .card small {
+      color: #777991;
+      line-height: 1.8;
+      font-size: 12px;
+    }
+
+    .panel {
+      display: none;
+      background: white;
+      padding: 22px 17px;
+      border-radius: 20px;
+      border: 1px solid #e9e8fa;
+      margin-top: 20px;
+    }
+
+    .panel h2 {
+      margin-top: 0;
+      line-height: 1.6;
+    }
+
+    .story {
+      line-height: 2;
+      color: #555772;
+      margin-bottom: 20px;
+    }
+
+    .choice {
+      width: 100%;
+      padding: 15px;
+      margin: 8px 0;
+      border: 1px solid #dedafa;
+      border-radius: 13px;
+      background: #f9f8ff;
+      text-align: right;
+      cursor: pointer;
+      font: inherit;
+      color: #292747;
+      line-height: 1.8;
+    }
+
+    .choice:hover {
+      background: #efecff;
+      border-color: #8b7cf4;
+    }
+
+    .result {
+      display: none;
+      background: #e9fff4;
+      border: 1px solid #b8f0d5;
+      border-radius: 14px;
+      padding: 16px;
+      line-height: 2;
+      margin-top: 15px;
+    }
+
+    .action {
+      border: 0;
+      background: #6658e8;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      font: inherit;
+      margin-top: 12px;
+    }
+
+    .back {
+      background: #ecebfa;
+      color: #39345e;
+      margin-right: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #85859c;
+      font-size: 12px;
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 25px;
+      }
+
+      .cards {
+        gap: 10px;
+      }
+
+      .card {
+        padding: 15px 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="top">
+    <div class="logo">✨ ماذا لو؟</div>
+    <div class="badge">اكتشف · جرّب · تعلّم</div>
+  </div>
+
+  <div class="hero">
+    <h1>ماذا لو غيّرت قرارك؟ 🤔</h1>
+    <p>
+      ادخل تجارب تفاعلية، واكتشف كيف يمكن لاختياراتك
+      أن تغيّر مجرى الأحداث. كل تجربة فرصة جديدة للتعلّم!
+    </p>
+  </div>
+</header>
+
+<main>
+  <h2 class="section-title">اختر تجربتك 🧭</h2>
+
+  <div class="cards" id="homeCards">
+
+    <button class="card" onclick="startStory('city')">
+      <span class="icon">🏙️</span>
+      <strong>مدير المدينة</strong>
+      <small>أنت المسؤول عن مدينة بميزانية محدودة. كيف ستطوّرها؟</small>
+    </button>
+
+    <button class="card" onclick="startStory('project')">
+      <span class="icon">💡</span>
+      <strong>مشروعك الأول</strong>
+      <small>لديك ميزانية صغيرة وفكرة مشروع. ما خطوتك الأولى؟</small>
+    </button>
+
+    <button class="card" onclick="startStory('adventure')">
+      <span class="icon">🌲</span>
+      <strong>مغامرة الغابة</strong>
+      <small>اكتشف طريقك عبر اختيارات تغيّر أحداث المغامرة.</small>
+    </button>
+
+    <button class="card" onclick="startStory('brain')">
+      <span class="icon">🧩</span>
+      <strong>تحدّي التفكير</strong>
+      <small>موقف يحتاج إلى التفكير قبل اتخاذ القرار.</small>
+    </button>
+
+  </div>
+
+  <section class="panel" id="gamePanel">
+    <h2 id="gameTitle"></h2>
+    <p class="story" id="gameStory"></p>
+    <div id="choices"></div>
+    <div class="result" id="gameResult"></div>
+    <button class="action" id="restartButton" onclick="restartStory()" style="display:none">
+      🔄 جرّب من جديد
+    </button>
+    <button class="action back" onclick="goHome()">العودة للرئيسية</button>
+  </section>
+
+  <h2 class="section-title">لماذا «ماذا لو؟» ✨</h2>
+
+  <div class="cards">
+    <div class="card">
+      <span class="icon">🧠</span>
+      <strong>فكّر بطريقة مختلفة</strong>
+      <small>اكتشف زوايا جديدة للمواقف والقرارات.</small>
+    </div>
+
+    <div class="card">
+      <span class="icon">🎯</span>
+      <strong>تعلّم بالتجربة</strong>
+      <small>جرّب مسارات مختلفة دون عواقب حقيقية.</small>
+    </div>
+  </div>
+</main>
+
+<footer>
+  ماذا لو؟ — كل اختيار يفتح بابًا جديدًا.
+  <br>التجارب للتعلّم والترفيه، والنتائج افتراضية.
+</footer>
+
+<script>
+  const stories = {
+    city: {
+      title: "🏙️ أنت مدير المدينة!",
+      story: "لديك ميزانية محدودة، والسكان ينتظرون منك قرارًا مهمًا. ما أولويتك؟",
+      choices: [
+        {
+          text: "🏥 تحسين المستشفى",
+          result: "أعطيت الصحة أولوية. قد يتحسن مستوى الرعاية، لكنك تحتاج لاحقًا إلى الاهتمام ببقية الخدمات."
+        },
+        {
+          text: "🏫 بناء مدرسة",
+          result: "استثمرت في التعليم. يمكن أن تستفيد الأجيال القادمة، لكن بعض احتياجات المدينة الحالية ما زالت قائمة."
+        },
+        {
+          text: "🛣️ إصلاح الطرق",
+          result: "اخترت تحسين التنقل. قد تسهل حركة الناس والبضائع، لكن عليك التخطيط لبقية الخدمات أيضًا."
+        }
+      ]
+    },
+
+    project: {
+      title: "💡 مشروعك الأول",
+      story: "تملك ميزانية صغيرة وتريد بدء مشروع. كيف ستقلل احتمال خسارة أموالك؟",
+      choices: [
+        {
+          text: "🛍️ أشتري كمية كبيرة من المنتجات",
+          result: "يمكن أن تحقق مبيعات جيدة إذا كان الطلب قويًا، لكن شراء كمية كبيرة قبل اختبار السوق يزيد المخاطرة."
+        },
+        {
+          text: "🔎 أختبر الطلب أولًا",
+          result: "خطوة حذرة! يمكنك سؤال العملاء المحتملين وتجربة البيع بكميات صغيرة قبل التوسع."
+        },
+        {
+          text: "📝 أدرس التكاليف والمنافسين",
+          result: "ستفهم السوق بصورة أفضل. حاول أيضًا التحدث مع العملاء واختبار الفكرة عمليًا."
+        }
+      ]
+    },
+
+    adventure: {
+      title: "🌲 مغامرة الغابة",
+      story: "أنت في غابة خيالية، ووجدت طريقين قبل حلول الليل. ماذا تختار؟",
+      choices: [
+        {
+          text: "🌟 أتبع الأضواء البعيدة",
+          result: "وصلت إلى كوخ صغير مضاء. وجدت خريطة تساعدك على تحديد طريق العودة!"
+        },
+        {
+          text: "🧭 أستخدم البوصلة وأبقى في الطريق",
+          result: "اخترت الطريق الأكثر وضوحًا. تحركت بهدوء حتى وصلت إلى مكان آمن."
+        },
+        {
+          text: "🌳 أصعد إلى مكان مرتفع لأرى الطريق",
+          result: "رأيت مجرى نهر ومعلمًا بعيدًا. أصبحت لديك معلومات أفضل لتختار اتجاهك."
+        }
+      ]
+    },
+
+    brain: {
+      title: "🧩 تحدّي التفكير",
+      story: "لديك ساعة واحدة لإنجاز مهمة مهمة، لكنك لا تعرف من أين تبدأ. ما أفضل خطوة أولى؟",
+      choices: [
+        {
+          text: "⚡ أبدأ فورًا دون تخطيط",
+          result: "البدء السريع قد يساعد، لكنك قد تهدر الوقت. خصص دقيقة لتحديد المطلوب والأولوية."
+        },
+        {
+          text: "📋 أحدد أهم خطوة وأبدأ بها",
+          result: "اختيار عملي! تحديد الأولوية يساعدك على استثمار الوقت، ثم يمكنك مراجعة تقدمك."
+        },
+        {
+          text: "⏳ أنتظر حتى تتضح كل التفاصيل",
+          result: "جمع المعلومات مفيد، لكن الانتظار طويلًا قد يستهلك الوقت. اجمع المعلومات الضرورية ثم ابدأ."
+        }
+      ]
+    }
+  };
+
+  let currentStory = null;
+
+  function startStory(id) {
+    currentStory = id;
+
+    const story = stories[id];
+    document.getElementById("homeCards").style.display = "none";
+    document.getElementById("gamePanel").style.display = "block";
+    document.querySelectorAll("main > .section-title")[1].style.display = "none";
+
+    document.getElementById("gameTitle").textContent = story.title;
+    document.getElementById("gameStory").textContent = story.story;
+
+    document.getElementById("gameResult").style.display = "none";
+    document.getElementById("restartButton").style.display = "none";
+
+    const choices = document.getElementById("choices");
+    choices.innerHTML = "";
+
+    story.choices.forEach(function(choice) {
+      const button = document.createElement("button");
+      button.className = "choice";
+      button.textContent = choice.text;
+      button.onclick = function() {
+        showResult(choice.result);
+      };
+      choices.appendChild(button);
+    });
+
+    document.getElementById("gamePanel").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+
+  function showResult(text) {
+    document.getElementById("gameResult").textContent = text;
+    document.getElementById("gameResult").style.display = "block";
+    document.getElementById("choices").style.display = "none";
+    document.getElementById("restartButton").style.display = "inline-block";
+  }
+
+  function restartStory() {
+    document.getElementById("choices").style.display = "block";
+    startStory(currentStory);
+  }
+
+  function goHome() {
+    document.getElementById("gamePanel").style.display = "none";
+    document.getElementById("homeCards").style.display = "grid";
+    document.querySelectorAll("main > .section-title")[1].style.display = "block";
+    document.getElementById("choices").style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
+
+</body>
+</html>
